@@ -24,4 +24,6 @@ hs_err_pid*
 replay_pid*
 
 #vpproject
-/vpproject
+/vpproject/
+/bin/
+.settings/
