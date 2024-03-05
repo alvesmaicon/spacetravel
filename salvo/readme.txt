@@ -1,0 +1,2 @@
+Nesta pasta estão os salvamentos do progresso da carreira e dados sobre as fases, como melhor tempo e se foi concluída.
+Não altere ou delete os arquivos, pois isso irá resultar no mal funcionamento do jogo.
