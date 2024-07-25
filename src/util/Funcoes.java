@@ -17,33 +17,15 @@ public class Funcoes {
 	//TODO algumas funções não estão sendo usadas.
 	//usando
 	public static boolean testaColisao(Planeta planeta, Espaconave ranger){
-
-		if(distAB(planeta, ranger) <= planeta.getOrbRaio()){
-			return true;
-		}else{
-			return false;
-		}
-
+		return distAB(planeta, ranger) <= planeta.getOrbRaio();
 	}
 
 	public static boolean testaColisaoPlaneta(Planeta planeta, Espaconave ranger){
-
-		if(distAB(planeta, ranger) <= planeta.getRaio() + ranger.getAltura()/2){
-			return true;
-		}else{
-			return false;
-		}
-
+		return distAB(planeta, ranger) <= planeta.getRaio() + ranger.getAltura()/2;
 	}
 
 	public static boolean testaColisao(Lua lua, Espaconave ranger){
-
-		if(distAB(lua, ranger) <= lua.getRaio() + ranger.getAltura()/2){
-			return true;
-		}else{
-			return false;
-		}
-
+		return distAB(lua, ranger) <= lua.getRaio() + ranger.getAltura()/2;
 	}
 
 	// usando para calcular distancia entre planeta e espaconave
@@ -126,23 +108,16 @@ public class Funcoes {
 		//	vetor U ortogonal ao vetor colisao x centro planeta
 		ux = ranger.getCentroY() - planeta.getCentroY();
 		uy = -(ranger.getCentroX() - planeta.getCentroX());
+		
 		//   produto escalar dividido pelo produto dos modulos
 		angulo = (ux*vx + uy*vy)/(moduloV(vx, vy) * moduloV(ux, uy));
 		angulo = Math.acos(angulo);
 
-		//		System.out.println("Angulo é: " + (int)Math.toDegrees(angulo));
 
-		if(angulo > Math.toRadians(90)){
-
-			return true; //SENTIDO HORARIO = TRUE
-		}
-		else{
-
-			return false; //SENTIDO HORARIO = FALSE
-		}
-
-
+		return angulo > Math.toRadians(90);
+		
 	}
+	
 	/**DETERMINA SE A NAVE DEVE COLIDIR OU NÃO COM O PLANETA*/
 	public static boolean colideOrbita(Espaconave ranger, Planeta planeta){
 		double angulo = 0;
@@ -159,14 +134,7 @@ public class Funcoes {
 
 		//		System.out.println("Angulo é: " + (int)Math.toDegrees(angulo));
 
-		if(angulo > Math.toRadians(130) || angulo < Math.toRadians(50)){
-			//			System.out.println("Angulo é: " + (int)Math.toDegrees(angulo));
-			return false;
-		}
-		else{
-			return true;
-		}
-
+		return !(angulo > Math.toRadians(130) || angulo < Math.toRadians(50));
 	}
 
 	//usando
