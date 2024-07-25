@@ -76,7 +76,6 @@ public class CenarioInicio extends JPanel {
 		this.addKeyListener(
 				new KeyListener(){
 					
-					@SuppressWarnings("deprecation")
 					@Override
 					public void keyPressed(KeyEvent evento){
 
@@ -147,9 +146,7 @@ public class CenarioInicio extends JPanel {
 		
 		this.addMouseListener(
 				new MouseListener(){
-
 					
-					@SuppressWarnings("deprecation")
 					@Override
 					public void mouseClicked(MouseEvent e) {
 						

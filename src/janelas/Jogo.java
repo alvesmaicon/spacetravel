@@ -7,7 +7,6 @@ package janelas;
 
 import java.awt.EventQueue;
 
-import janelas.Janela;
 import salvamento.Carrega;
 
 public class Jogo {

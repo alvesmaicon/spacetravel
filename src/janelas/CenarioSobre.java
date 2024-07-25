@@ -152,12 +152,24 @@ public class CenarioSobre extends JPanel{
 	public void desenharCoisas(Graphics g){
 		Graphics2D g2d = (Graphics2D) g;
 		
-		g2d.drawImage(fundo, 0, -30, null);
+		g2d.drawImage(fundo, -10, -12, null);
 		
 		
 		g2d.setColor(Color.BLACK);
 		g2d.setFont(new Font("Serif", Font.BOLD, 20));
 		g2d.drawString("Voltar", 397, 464);
+		
+		g2d.setColor(Color.WHITE);
+		g2d.setFont(new Font("Arial", Font.PLAIN, 15));
+		g2d.drawString("Editar fases:", 30, 450);
+		g2d.drawString("Resetar progresso:", 30, 465);
+		g2d.drawString("Limpar tempos:", 30, 480);
+		g2d.drawString("Limpar fases liberadas:", 30, 495);
+		
+		g2d.drawString("alt + shift + E", 200, 450);
+		g2d.drawString("alt + shift + R", 200, 465);
+		g2d.drawString("alt + shift + T", 200, 480);
+		g2d.drawString("alt + shift + F", 200, 495);
 		
 		
 //		g2d.drawRect(335, 442, 180, 30);

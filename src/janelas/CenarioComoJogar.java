@@ -165,7 +165,7 @@ public class CenarioComoJogar extends JPanel{
 	public void desenharCoisas(Graphics g){
 		Graphics2D g2d = (Graphics2D) g;
 
-		g2d.drawImage(fundo, 0, -30, null);
+		g2d.drawImage(fundo, -10, -12, null);
 
 
 		g2d.setColor(Color.BLACK);
