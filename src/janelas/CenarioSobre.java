@@ -31,8 +31,7 @@ public class CenarioSobre extends JPanel{
 	public static EditorDeFase editorDeFase;
 	
 	private int x, y;
-
-	@SuppressWarnings("deprecation")
+	
 	public CenarioSobre(){
 		fundo = Toolkit.getDefaultToolkit().getImage("imagens/fundo-1.png");
 		fundo = fundo.getScaledInstance(
@@ -40,7 +39,7 @@ public class CenarioSobre extends JPanel{
 		
 		musica_sobre = new ReprodutorDeMusica2("sons/musica-2-loop.wav");
 		musica_sobre.start();
-		musica_sobre.suspend();
+		musica_sobre.pausar();
 		
 		this.addKeyListener(
 				new KeyListener(){
@@ -51,9 +50,9 @@ public class CenarioSobre extends JPanel{
 							ReprodutorDeSom.getInstancia().reproduzir("click");
 							Janela.trocaCenario(Janela.cenarioInicio);
 							
-							musica_sobre.suspend();
+							musica_sobre.pausar();
 							CenarioInicio.musica_inicio.recomeca();
-							CenarioInicio.musica_inicio.resume();
+							CenarioInicio.musica_inicio.retomar();
 						}
 						
 						if(evento.isShiftDown() && evento.isAltDown() && evento.getKeyCode() == KeyEvent.VK_E){
@@ -108,9 +107,9 @@ public class CenarioSobre extends JPanel{
 							ReprodutorDeSom.getInstancia().reproduzir("click");
 							Janela.trocaCenario(Janela.cenarioInicio);
 							
-							musica_sobre.suspend();
+							musica_sobre.pausar();
 							CenarioInicio.musica_inicio.recomeca();
-							CenarioInicio.musica_inicio.resume();
+							CenarioInicio.musica_inicio.retomar();
 						}
 						
 					}

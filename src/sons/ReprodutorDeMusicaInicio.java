@@ -6,6 +6,9 @@ import java.io.DataInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioInputStream;
@@ -32,6 +35,10 @@ public class ReprodutorDeMusicaInicio extends Thread {
 	private AudioFormat formato;
 	private byte[] amostras;
 	private static boolean recomeca = false;
+	
+	private final Lock lock = new ReentrantLock();
+    private final Condition pauseCondition = lock.newCondition();
+    private volatile boolean pausado = false;
 
 
 	public ReprodutorDeMusicaInicio(String arquivo){
@@ -57,6 +64,25 @@ public class ReprodutorDeMusicaInicio extends Thread {
 	public void recomeca(){
 		recomeca = true;
 	}
+	
+	public void pausar() {
+        lock.lock();
+        try {
+            pausado = true;
+        } finally {
+            lock.unlock();
+        }
+    }
+	
+	public void retomar() {
+        lock.lock();
+        try {
+            pausado = false;
+            pauseCondition.signalAll();
+        } finally {
+            lock.unlock();
+        }
+    }
 
 	public void carregarSom(AudioInputStream fluxoDeAudio){
 		//carrega o formato do som
@@ -104,6 +130,16 @@ public class ReprodutorDeMusicaInicio extends Thread {
 		try {
 			int numBytesRead = 0;
 			while (true) {
+				lock.lock();
+                try {
+                    while (pausado) {
+                        pauseCondition.await();
+                    }
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                } finally {
+                    lock.unlock();
+                }
 				//controla o volume
 				controleVolume.setValue(CenarioInicio.audio.getVolume());
 				if(CenarioInicio.audio.isMusica()){

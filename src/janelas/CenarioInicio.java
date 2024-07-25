@@ -84,9 +84,9 @@ public class CenarioInicio extends JPanel {
 						if (evento.getKeyCode() == KeyEvent.VK_1){
 							Janela.trocaCenario(Janela.cenarioSingle);
 
-							musica_inicio.suspend();
+							musica_inicio.pausar();
 							CenarioSingle.musica_single.recomeca();
-							CenarioSingle.musica_single.resume();
+							CenarioSingle.musica_single.retomar();
 							CenarioSingle.reiniciaFase();
 							CenarioSingle.setFaseAtual();
 							
@@ -97,9 +97,9 @@ public class CenarioInicio extends JPanel {
 							Janela.trocaCenario(Janela.cenarioMulti);
 							
 							
-							musica_inicio.suspend();
+							musica_inicio.pausar();
 							CenarioMulti.musica_multi.recomeca();	
-							CenarioMulti.musica_multi.resume();
+							CenarioMulti.musica_multi.retomar();
 							CenarioMulti.reiniciaJogo();
 						}
 						
@@ -109,9 +109,9 @@ public class CenarioInicio extends JPanel {
 								jogaFree = true;
 								Janela.trocaCenario(Janela.cenarioSingle);
 								
-								musica_inicio.suspend();
+								musica_inicio.pausar();
 								CenarioSingle.musica_single.recomeca();
-								CenarioSingle.musica_single.resume();
+								CenarioSingle.musica_single.retomar();
 								CenarioSingle.setFaseAtual(indice);
 							}
 							ReprodutorDeSom.getInstancia().reproduzir("click");
@@ -121,9 +121,9 @@ public class CenarioInicio extends JPanel {
 							ReprodutorDeSom.getInstancia().reproduzir("click");
 							Janela.trocaCenario(Janela.cenarioSobre);
 							
-							musica_inicio.suspend();
+							musica_inicio.pausar();
 							CenarioSobre.musica_sobre.recomeca();
-							CenarioSobre.musica_sobre.resume();
+							CenarioSobre.musica_sobre.retomar();
 						}
 						
 						if(evento.getKeyCode() == KeyEvent.VK_5){
@@ -161,9 +161,9 @@ public class CenarioInicio extends JPanel {
 							ReprodutorDeSom.getInstancia().reproduzir("click");
 							Janela.trocaCenario(Janela.cenarioSingle);
 							
-							musica_inicio.suspend();
+							musica_inicio.pausar();
 							CenarioSingle.musica_single.recomeca();
-							CenarioSingle.musica_single.resume();
+							CenarioSingle.musica_single.retomar();
 							CenarioSingle.setFaseAtual();
 							
 							jogaFree = false;
@@ -173,9 +173,9 @@ public class CenarioInicio extends JPanel {
 							ReprodutorDeSom.getInstancia().reproduzir("click");
 							Janela.trocaCenario(Janela.cenarioMulti);
 							
-							musica_inicio.suspend();
+							musica_inicio.pausar();
 							CenarioMulti.musica_multi.recomeca();
-							CenarioMulti.musica_multi.resume();
+							CenarioMulti.musica_multi.retomar();
 							CenarioMulti.reiniciaJogo();
 						}
 						
@@ -188,9 +188,9 @@ public class CenarioInicio extends JPanel {
 								jogaFree = true;
 								Janela.trocaCenario(Janela.cenarioSingle);
 								
-								musica_inicio.suspend();
+								musica_inicio.pausar();
 								CenarioSingle.musica_single.recomeca();
-								CenarioSingle.musica_single.resume();
+								CenarioSingle.musica_single.retomar();
 								CenarioSingle.setFaseAtual(indice);
 							}
 							ReprodutorDeSom.getInstancia().reproduzir("click");
@@ -201,9 +201,9 @@ public class CenarioInicio extends JPanel {
 							ReprodutorDeSom.getInstancia().reproduzir("click");
 							Janela.trocaCenario(Janela.cenarioSobre);
 							
-							musica_inicio.suspend();
+							musica_inicio.pausar();
 							CenarioSobre.musica_sobre.recomeca();
-							CenarioSobre.musica_sobre.resume();
+							CenarioSobre.musica_sobre.retomar();
 						}
 						//BOTAO 5
 						if(x > 295 && x < 520 && y > 450 && y < 480){

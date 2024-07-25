@@ -109,9 +109,7 @@ public class CenarioSingle extends JPanel {
 	private static int xnave, ynave;
 
 	public static String planetaAtual = "string1", planetaAnterior = "string2";
-
-
-	@SuppressWarnings("deprecation")
+	
 	public CenarioSingle(){
 
 		//carga da imagem de fundo em um ícone (primitivo da imagem)
@@ -159,7 +157,7 @@ public class CenarioSingle extends JPanel {
 
 		musica_single = new ReprodutorDeMusica1("sons/musica-1-loop.wav");
 		musica_single.start();
-		musica_single.suspend();
+		musica_single.pausar();
 
 		//configura os listeners de mouse
 
@@ -178,15 +176,15 @@ public class CenarioSingle extends JPanel {
 								ReprodutorDeSom.getInstancia().reproduzir("click");
 								Pausa = false;
 								musica_single.recomeca();
-								musica_single.resume();
+								musica_single.retomar();
 							}
 							//BOTAO 2 ABRE COMO JOGAR
 							if(x > 295 && x < 520 && y > 330 && y < 360){
 								ReprodutorDeSom.getInstancia().reproduzir("click");
 								Janela.trocaCenario(Janela.cenarioComoJogar);
-								musica_single.suspend();
+								musica_single.pausar();
 								CenarioComoJogar.musica_como_jogar.recomeca();
-								CenarioComoJogar.musica_como_jogar.resume();
+								CenarioComoJogar.musica_como_jogar.retomar();
 
 							}
 							//BOTAO 3 VOLTA PRO MENU
@@ -194,9 +192,9 @@ public class CenarioSingle extends JPanel {
 								ReprodutorDeSom.getInstancia().reproduzir("click");
 								Janela.trocaCenario(Janela.cenarioInicio);
 								reiniciaFase();
-								musica_single.suspend();
+								musica_single.pausar();
 								CenarioInicio.musica_inicio.recomeca();
-								CenarioInicio.musica_inicio.resume();
+								CenarioInicio.musica_inicio.retomar();
 								Pausa = false;
 
 
@@ -215,9 +213,9 @@ public class CenarioSingle extends JPanel {
 								ReprodutorDeSom.getInstancia().reproduzir("click");
 								Janela.trocaCenario(Janela.cenarioInicio);
 								reiniciaFase();
-								musica_single.suspend();
+								musica_single.pausar();
 								CenarioInicio.musica_inicio.recomeca();
-								CenarioInicio.musica_inicio.resume();
+								CenarioInicio.musica_inicio.retomar();
 								Pausa = false;
 
 							}
@@ -238,9 +236,9 @@ public class CenarioSingle extends JPanel {
 								ReprodutorDeSom.getInstancia().reproduzir("click");
 								Janela.trocaCenario(Janela.cenarioInicio);
 								reiniciaJogo();
-								musica_single.suspend();
+								musica_single.pausar();
 								CenarioInicio.musica_inicio.recomeca();
-								CenarioInicio.musica_inicio.resume();
+								CenarioInicio.musica_inicio.retomar();
 								Pausa = false;
 							}
 							//BOTAO 3 SAI DO JOGO
@@ -261,9 +259,9 @@ public class CenarioSingle extends JPanel {
 								ReprodutorDeSom.getInstancia().reproduzir("click");
 								Janela.trocaCenario(Janela.cenarioInicio);
 								
-								musica_single.suspend();
+								musica_single.pausar();
 								CenarioInicio.musica_inicio.recomeca();
-								CenarioInicio.musica_inicio.resume();
+								CenarioInicio.musica_inicio.retomar();
 								CenarioInicio.jogaFree = false;
 							}
 							//BOTAO 3 SAI DO JOGO
@@ -283,9 +281,9 @@ public class CenarioSingle extends JPanel {
 							if(x > 295 && x < 520 && y > 330 && y < 360){
 								ReprodutorDeSom.getInstancia().reproduzir("click");
 								Janela.trocaCenario(Janela.cenarioComoJogar);
-								musica_single.suspend();
+								musica_single.pausar();
 								CenarioComoJogar.musica_como_jogar.recomeca();
-								CenarioComoJogar.musica_como_jogar.resume();
+								CenarioComoJogar.musica_como_jogar.retomar();
 							}
 							
 							//BOTAO 3 VOLTA PRO MENU
@@ -293,9 +291,9 @@ public class CenarioSingle extends JPanel {
 								ReprodutorDeSom.getInstancia().reproduzir("click");
 								Janela.trocaCenario(Janela.cenarioInicio);
 								reiniciaFase();
-								musica_single.suspend();
+								musica_single.pausar();
 								CenarioInicio.musica_inicio.recomeca();
-								CenarioInicio.musica_inicio.resume();
+								CenarioInicio.musica_inicio.retomar();
 							}
 						}
 					}
@@ -339,11 +337,11 @@ public class CenarioSingle extends JPanel {
 								ReprodutorDeSom.getInstancia().reproduzir("click");
 								if(Pausa){
 									Pausa = false;
-									musica_single.resume();
+									musica_single.retomar();
 								}
 								else{
 									Pausa = true;
-									musica_single.suspend();
+									musica_single.pausar();
 								}
 							}
 

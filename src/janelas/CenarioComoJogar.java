@@ -28,9 +28,7 @@ public class CenarioComoJogar extends JPanel{
 	public static ReprodutorDeMusica2 musica_como_jogar = null;
 
 	private int x, y;
-
-
-	@SuppressWarnings("deprecation")
+	
 	public CenarioComoJogar(){
 		fundo = Toolkit.getDefaultToolkit().getImage("imagens/fundo-2.png");
 		fundo = fundo.getScaledInstance(
@@ -40,7 +38,7 @@ public class CenarioComoJogar extends JPanel{
 
 		musica_como_jogar = new ReprodutorDeMusica2("sons/musica-2-loop.wav");
 		musica_como_jogar.start();
-		musica_como_jogar.suspend();
+		musica_como_jogar.pausar();
 
 		this.addKeyListener(
 				new KeyListener(){
@@ -52,24 +50,24 @@ public class CenarioComoJogar extends JPanel{
 								ReprodutorDeSom.getInstancia().reproduzir("click");
 								Janela.trocaCenario(Janela.cenarioSingle);
 
-								musica_como_jogar.suspend();
+								musica_como_jogar.pausar();
 							}
 
 							if(!CenarioSingle.Perdeu && !CenarioSingle.isPausa()){
 								ReprodutorDeSom.getInstancia().reproduzir("click");
 								Janela.trocaCenario(Janela.cenarioInicio);
 
-								musica_como_jogar.suspend();
+								musica_como_jogar.pausar();
 								CenarioInicio.musica_inicio.recomeca();
-								CenarioInicio.musica_inicio.resume();
+								CenarioInicio.musica_inicio.retomar();
 
 							}
 							if(CenarioSingle.Perdeu){
 								ReprodutorDeSom.getInstancia().reproduzir("click");
 								Janela.trocaCenario(Janela.cenarioSingle);
 
-								musica_como_jogar.suspend();
-								CenarioSingle.musica_single.resume();
+								musica_como_jogar.pausar();
+								CenarioSingle.musica_single.retomar();
 							}
 
 						}
@@ -107,24 +105,24 @@ public class CenarioComoJogar extends JPanel{
 								ReprodutorDeSom.getInstancia().reproduzir("click");
 								Janela.trocaCenario(Janela.cenarioSingle);
 
-								musica_como_jogar.suspend();
+								musica_como_jogar.pausar();
 							}
 
 							if(!CenarioSingle.Perdeu && !CenarioSingle.isPausa()){
 								ReprodutorDeSom.getInstancia().reproduzir("click");
 								Janela.trocaCenario(Janela.cenarioInicio);
 
-								musica_como_jogar.suspend();
+								musica_como_jogar.pausar();
 								CenarioInicio.musica_inicio.recomeca();
-								CenarioInicio.musica_inicio.resume();
+								CenarioInicio.musica_inicio.retomar();
 
 							}
 							if(CenarioSingle.Perdeu){
 								ReprodutorDeSom.getInstancia().reproduzir("click");
 								Janela.trocaCenario(Janela.cenarioSingle);
 
-								musica_como_jogar.suspend();
-								CenarioSingle.musica_single.resume();
+								musica_como_jogar.pausar();
+								CenarioSingle.musica_single.retomar();
 							}
 						}
 					}

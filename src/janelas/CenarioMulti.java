@@ -100,10 +100,7 @@ public class CenarioMulti extends JPanel {
 
 	public static String[] planetaAnterior = {"string1", "string2"};
 	public static String[] planetaAtual = {"string3", "string4"};
-
-
-
-	@SuppressWarnings("deprecation")
+	
 	public CenarioMulti(){
 		//carga da imagem de fundo em um ícone (primitivo da imagem)
 		fundo = Toolkit.getDefaultToolkit().getImage("imagens/milkway.png");
@@ -138,7 +135,7 @@ public class CenarioMulti extends JPanel {
 		
 		musica_multi = new ReprodutorDeMusica3("sons/musica-3-loop.wav");
 		musica_multi.start();
-		musica_multi.suspend();
+		musica_multi.pausar();
 
 		//configuração do timer
 		timer = new Timer();
@@ -159,23 +156,23 @@ public class CenarioMulti extends JPanel {
 							if(x > 295 && x < 520 && y > 280 && y < 310){
 								ReprodutorDeSom.getInstancia().reproduzir("click");
 								Pausa = false;
-								musica_multi.resume();
+								musica_multi.retomar();
 							}
 							//BOTAO 2 COMECA DE NOVO
 							if(x > 295 && x < 520 && y > 330 && y < 360){
 								ReprodutorDeSom.getInstancia().reproduzir("click");
 								reiniciaJogo();
 								Pausa = false;
-								musica_multi.resume();
+								musica_multi.retomar();
 							}
 							//BOTAO 3 VOLTA PRO MENU
 							if(x > 295 && x < 520 && y > 375 && y < 405){
 								ReprodutorDeSom.getInstancia().reproduzir("click");
 								Janela.trocaCenario(Janela.cenarioInicio);
 								reiniciaJogo();
-								musica_multi.suspend();
+								musica_multi.pausar();
 								CenarioInicio.musica_inicio.recomeca();
-								CenarioInicio.musica_inicio.resume();
+								CenarioInicio.musica_inicio.retomar();
 								Pausa = false;
 								Multi.vetorEspaconaves.elementAt(0).setAuxilioRota(false);
 								Multi.vetorEspaconaves.elementAt(1).setAuxilioRota(false);
@@ -193,9 +190,9 @@ public class CenarioMulti extends JPanel {
 								ReprodutorDeSom.getInstancia().reproduzir("click");
 								Janela.trocaCenario(Janela.cenarioInicio);
 								reiniciaJogo();
-								musica_multi.suspend();
+								musica_multi.pausar();
 								CenarioInicio.musica_inicio.recomeca();
-								CenarioInicio.musica_inicio.resume();
+								CenarioInicio.musica_inicio.retomar();
 								Multi.vetorEspaconaves.elementAt(0).setAuxilioRota(false);
 								Multi.vetorEspaconaves.elementAt(1).setAuxilioRota(false);
 							}
@@ -246,11 +243,11 @@ public class CenarioMulti extends JPanel {
 								ReprodutorDeSom.getInstancia().reproduzir("click");
 								if(Pausa){
 									Pausa = false;
-									musica_multi.resume();
+									musica_multi.retomar();
 								}
 								else{
 									Pausa = true;
-									musica_multi.suspend();
+									musica_multi.pausar();
 								}
 							}
 
