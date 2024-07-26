@@ -41,7 +41,7 @@ public class EditorDeFase extends JFrame implements ActionListener{
 		content.setLayout(null);
 		this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		this.setIconImage(iconeJanela);
-		this.setSize(220, 550);
+		this.setSize(220, 570);
 		this.setLocation(810, 5);
 		this.setResizable(false);
 		this.setVisible(true);
